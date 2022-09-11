@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_wifi"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:contentDescription="@null"
+        android:padding="@dimen/_9sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:src="@drawable/img_wifi"
+        app:tint="#0C032E" />
+
+    <ImageView
+        android:id="@+id/iv_power"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/iv_wifi"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:contentDescription="@null"
+        android:padding="@dimen/_6sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:src="@android:drawable/ic_lock_power_off" />
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingStart="@dimen/_28sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_28sdp"
+        android:singleLine="true"
+        android:text="@string/camera"
+        android:textColor="#0C032E"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_preset_add"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_toStartOf="@id/iv_setting"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:contentDescription="@null"
+        android:padding="@dimen/_6sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:visibility="gone"
+        android:src="@drawable/img_check" />
+
+    <ImageView
+        android:id="@+id/iv_setting"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="58dp"
+        android:contentDescription="@null"
+        android:padding="6.00dp"
+        android:paddingTop="@dimen/_5sdp"
+        android:src="@drawable/img_setting" />
+
+    <TextView
+        android:id="@+id/power_perc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="8dp"
+        android:padding="6.00dp"
+        android:paddingTop="@dimen/_5sdp"
+        android:textColor="#0C032E"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="normal" />
+
+    <ImageView
+        android:id="@+id/iv_battery"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@id/power_perc"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="-15dp"
+        android:src="@android:drawable/ic_lock_idle_charging" />
+
+</RelativeLayout>

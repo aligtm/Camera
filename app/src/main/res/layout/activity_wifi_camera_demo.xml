@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rv_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/rv_image"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:visibility="gone">-->
+
+<!--        <include-->
+<!--            layout="@layout/activity_show_image2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
+<!--    </RelativeLayout>-->
+
+    <RelativeLayout
+        android:id="@+id/rv_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/myWifiCameraViewParent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/rl_bottom"
+            android:layout_below="@id/ll_top_bar"
+            android:layout_gravity="center"
+            android:background="@color/black"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            >
+
+            <LinearLayout
+                android:id="@+id/input_lyout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter the Wifi Camera Url or IP Address"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingTop="@dimen/_13sdp"
+                android:textSize="@dimen/activity_horizontal_margin"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@color/white"
+                app:prefixText="http://"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                >
+                <EditText
+                    android:id="@+id/add_camera_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Camera 1"
+                    android:imeOptions="actionNext"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@color/white"
+                app:prefixText="http://"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                >
+                <EditText
+                    android:id="@+id/add_camera_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Camera 2"
+                    android:imeOptions="actionNext"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@color/white"
+                app:prefixText="http://"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                >
+                <EditText
+                    android:id="@+id/add_camera_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Camera 3"
+                    android:imeOptions="actionNext"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@color/white"
+                app:prefixText="http://"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                >
+                <EditText
+                    android:id="@+id/add_camera_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Camera 4"
+                    android:imeOptions="actionNext"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Click on the camera number below for the preview"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingTop="@dimen/_13sdp"
+                android:textSize="@dimen/activity_horizontal_margin"
+                />
+            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:visibility="invisible" />
+
+
+            <WebView
+                android:id="@+id/wifiCameraWebView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/rl_bottom"
+                android:layout_below="@id/ll_top_bar"
+                android:layout_gravity="top|center"
+                android:background="#000000"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+            </WebView>
+
+        </LinearLayout>
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/rv_timer"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/ll_top_bar"-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginBottom="10dp">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_dot"-->
+<!--                android:layout_width="@dimen/_8sdp"-->
+<!--                android:layout_height="@dimen/_8sdp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:tint="@color/reddark"-->
+<!--                android:src="@drawable/img_dot" />-->
+
+<!--            <Chronometer-->
+<!--                android:id="@+id/tvTimer"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:layout_toEndOf="@id/iv_dot"-->
+<!--                android:text="00:00"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="@dimen/_13sdp" />-->
+<!--        </RelativeLayout>-->
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/relativelayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_above="@id/ll_filter"-->
+<!--            android:layout_below="@id/ll_top_bar"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <com.github.ybq.android.spinkit.SpinKitView-->
+<!--                android:id="@+id/spin_kit"-->
+<!--                style="@style/SpinKitView.Large.Circle"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginBottom="@dimen/_50sdp"-->
+<!--                android:visibility="gone"-->
+<!--                app:SpinKit_Color="@color/colorAccent" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageview"-->
+<!--                android:layout_width="@dimen/_20sdp"-->
+<!--                android:layout_height="@dimen/_20sdp"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:scaleType="fitXY" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/filterText"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginBottom="@dimen/_50sdp"-->
+<!--                android:textColor="#ffffff"-->
+<!--                android:textSize="35.0sp" />-->
+
+<!--        </RelativeLayout>-->
+
+        <LinearLayout
+            android:id="@+id/ll_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+<!--            <include-->
+<!--                android:id="@+id/include_toolbar"-->
+<!--                layout="@layout/include_toolbar" />-->
+
+        </LinearLayout>
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/cv_dialog"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="@dimen/_50sdp"-->
+<!--            android:alpha="0.6"-->
+<!--            android:visibility="gone"-->
+<!--            app:cardBackgroundColor="@color/black"-->
+<!--            app:cardCornerRadius="@dimen/_10sdp">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="15dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    app:cardBackgroundColor="@color/black"-->
+<!--                    app:cardCornerRadius="30dp">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/ll_resolution"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:visibility="gone"-->
+<!--                        android:weightSum="4"-->
+<!--                        tools:visibility="visible">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/ll_1080_30fps"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:background="@drawable/bg_resolution_back"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:padding="5dp">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="1080p"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="(30fps)"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/ll_1080_60fps"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:padding="5dp">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="1080p"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="(60fps)"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/ll_1080_240fps"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:padding="5dp">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="1080p"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="(240fps)"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/ll_4k_30fps"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:padding="5dp">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="4k"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="(30fps)"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/ll_4k_60fps"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:padding="5dp">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="4k"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:text="(60fps)"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="@dimen/_10sdp" />-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_top"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_20sdp"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_flash"-->
+<!--                            android:layout_width="@dimen/_18sdp"-->
+<!--                            android:layout_height="@dimen/_18sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/img_flash" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Flash"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/ll_night"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_20sdp"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_night"-->
+<!--                            android:layout_width="@dimen/_18sdp"-->
+<!--                            android:layout_height="@dimen/_18sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/img_night" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Night"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_20sdp"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_slow_motion"-->
+<!--                            android:layout_width="@dimen/_18sdp"-->
+<!--                            android:layout_height="@dimen/_18sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/img_slow_motion" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_slow_motion"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Slo-mo"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_20sdp"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_timer"-->
+<!--                            android:layout_width="@dimen/_18sdp"-->
+<!--                            android:layout_height="@dimen/_18sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/img_timer" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Timer"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_20sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_20sdp"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_burst"-->
+<!--                            android:layout_width="@dimen/_18sdp"-->
+<!--                            android:layout_height="@dimen/_18sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:saveEnabled="false"-->
+<!--                            android:src="@drawable/img_burst" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Bursts"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_bottom_menu"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/_20sdp"-->
+<!--                    android:layout_marginTop="@dimen/_20sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_20sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_10sdp"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_hdr"-->
+<!--                            android:layout_width="@dimen/_20sdp"-->
+<!--                            android:layout_height="@dimen/_20sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/img_camera" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="HDR"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_20sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_20sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_mode"-->
+<!--                            android:layout_width="@dimen/_20sdp"-->
+<!--                            android:layout_height="@dimen/_20sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/img_auto_rotate"-->
+<!--                            android:tint="@color/white" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="Mode"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_resize"-->
+<!--                            android:layout_width="@dimen/_20sdp"-->
+<!--                            android:layout_height="@dimen/_20sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/img_square"-->
+<!--                            />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="20mp"-->
+<!--                            android:textColor="@color/white"-->
+<!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+        <LinearLayout
+            android:id="@+id/ll_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/rl_bottom"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/bottom_layer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_seekbar"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/ll_seekbar"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:gravity="center">-->
+
+<!--                    <SeekBar-->
+<!--                        android:id="@+id/seekBar"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginLeft="35dp"-->
+<!--                        android:layout_marginRight="35dp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:theme="@style/AppTheme2" />-->
+
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/filter_layout_base"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="@dimen/_10sdp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:visibility="gone">-->
+
+<!--                    <include-->
+<!--                        android:id="@+id/layout_filter_layer"-->
+<!--                        layout="@layout/filter_layout"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="bottom" />-->
+
+<!--                </LinearLayout>-->
+
+                <RelativeLayout
+                    android:id="@+id/rl_angle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rv_1"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:alpha="0.5"
+                        android:background="@drawable/bg_border_20"
+                        android:backgroundTint="@color/black">
+
+                        <TextView
+                            android:id="@+id/tv_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/_3sdp"
+                            android:text="1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rv_2"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_toEndOf="@+id/rv_1"
+                        android:alpha="0.5"
+                        android:background="@drawable/bg_border_20"
+                        android:backgroundTint="@color/black">
+
+                        <TextView
+                            android:id="@+id/tv_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/_3sdp"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rv_3"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_toEndOf="@+id/rv_2"
+                        android:alpha="0.5"
+                        android:background="@drawable/bg_border_20"
+                        android:backgroundTint="@color/black">
+
+                        <TextView
+                            android:id="@+id/tv_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/_3sdp"
+                            android:text="3"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rv_4"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_toEndOf="@+id/rv_3"
+                        android:alpha="0.5"
+                        android:background="@drawable/bg_border_20"
+                        android:backgroundTint="@color/black">
+
+                        <TextView
+                            android:id="@+id/tv_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/_3sdp"
+                            android:text="4"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_camera_preset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/rv_camera_1"
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:alpha="0.6"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="@dimen/_5sdp">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/_43sdp"
+                            android:layout_height="@dimen/_33sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_color_chooser"
+                            android:elevation="0dp"
+                            android:padding="6dp">
+
+                            <ImageView
+                                android:id="@+id/iv_preset1"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@null"
+                                android:src="@drawable/img_camera_preset"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="5dp"
+                                android:layout_toEndOf="@id/iv_preset1"
+                                android:text="1"
+                                android:textColor="@color/white" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/rv_camera_2"
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toEndOf="@id/rv_camera_1"
+                        android:alpha="0.6"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="@dimen/_5sdp">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/_43sdp"
+                            android:layout_height="@dimen/_33sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_color_chooser"
+                            android:elevation="0dp"
+                            android:padding="5dp">
+
+                            <ImageView
+                                android:id="@+id/iv_preset2"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@null"
+                                android:src="@drawable/img_camera_preset"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="5dp"
+                                android:layout_toEndOf="@id/iv_preset2"
+                                android:text="2"
+                                android:textColor="@color/white" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/rv_camera_3"
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_toEndOf="@id/rv_camera_2"
+                        android:alpha="0.6"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="@dimen/_5sdp">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/_43sdp"
+                            android:layout_height="@dimen/_33sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_color_chooser"
+                            android:elevation="0dp"
+                            android:padding="6dp">
+
+                            <ImageView
+                                android:id="@+id/iv_preset3"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@null"
+                                android:src="@drawable/img_camera_preset"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="5dp"
+                                android:layout_toEndOf="@id/iv_preset3"
+                                android:text="3"
+                                android:textColor="@color/white" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/rv_camera_4"-->
+                    <!--                        android:layout_width="@dimen/_45sdp"-->
+                    <!--                        android:layout_height="@dimen/_35sdp"-->
+                    <!--                        android:layout_gravity="center_horizontal"-->
+                    <!--                        android:layout_marginStart="@dimen/_8sdp"-->
+                    <!--                        android:layout_toEndOf="@id/rv_camera_3"-->
+                    <!--                        android:alpha="0.6"-->
+                    <!--                        app:cardBackgroundColor="@android:color/transparent"-->
+                    <!--                        app:cardCornerRadius="@dimen/_5sdp">-->
+
+                    <!--                        <RelativeLayout-->
+                    <!--                            android:layout_width="@dimen/_43sdp"-->
+                    <!--                            android:layout_height="@dimen/_33sdp"-->
+                    <!--                            android:layout_gravity="center"-->
+                    <!--                            android:background="@drawable/bg_color_chooser"-->
+                    <!--                            android:elevation="0dp"-->
+                    <!--                            android:padding="6dp">-->
+
+                    <!--                            <ImageView-->
+                    <!--                                android:id="@+id/iv_preset4"-->
+                    <!--                                android:layout_width="@dimen/_20sdp"-->
+                    <!--                                android:layout_height="@dimen/_20sdp"-->
+                    <!--                                android:layout_centerVertical="true"-->
+                    <!--                                android:contentDescription="@null"-->
+                    <!--                                android:src="@drawable/img_camera_preset"-->
+                    <!--                                />-->
+
+                    <!--                            <TextView-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:layout_centerVertical="true"-->
+                    <!--                                android:layout_marginStart="5dp"-->
+                    <!--                                android:layout_toEndOf="@id/iv_preset4"-->
+                    <!--                                android:text="4"-->
+                    <!--                                android:textColor="@color/white" />-->
+                    <!--                        </RelativeLayout>-->
+                    <!--                    </androidx.cardview.widget.CardView>-->
+                </RelativeLayout>
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/bottom_layout_base"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="1">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@id/bottom"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_70sdp"-->
+<!--                            android:background="@color/white"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:padding="@dimen/_5sdp"-->
+<!--                            android:visibility="gone">-->
+
+<!--                            <SeekBar-->
+<!--                                android:id="@+id/value"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content" />-->
+
+<!--                            <androidx.recyclerview.widget.RecyclerView-->
+<!--                                android:id="@+id/effect_selector_view"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="50dp"-->
+<!--                                android:layout_marginTop="10dp"-->
+<!--                                android:orientation="horizontal"-->
+<!--                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <RelativeLayout-->
+<!--                            android:id="@+id/rl_camera"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_60sdp">-->
+
+<!--                            <LinearLayout-->
+<!--                                android:id="@+id/ll_preset"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_centerVertical="true"-->
+<!--                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                android:layout_marginEnd="@dimen/_30sdp"-->
+<!--                                android:layout_toStartOf="@id/ll_shot"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/iv_preset"-->
+<!--                                    android:layout_width="@dimen/_25sdp"-->
+<!--                                    android:layout_height="@dimen/_25sdp"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:src="@drawable/img_preset_white" />-->
+
+<!--                            </LinearLayout>-->
+
+<!--                            <LinearLayout-->
+<!--                                android:id="@+id/ll_shot"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_centerInParent="true">-->
+
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/iv_burst_camera"-->
+<!--                                    android:layout_width="@dimen/_52sdp"-->
+<!--                                    android:layout_height="@dimen/_52sdp"-->
+<!--                                    android:layout_centerInParent="true"-->
+<!--                                    android:src="@drawable/img_shut_camera"-->
+<!--                                    android:visibility="gone" />-->
+
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/iv_shut_camera"-->
+<!--                                    android:layout_width="@dimen/_52sdp"-->
+<!--                                    android:layout_height="@dimen/_52sdp"-->
+<!--                                    android:layout_centerInParent="true"-->
+<!--                                    android:src="@drawable/img_shut_camera" />-->
+
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/recordBtn"-->
+<!--                                    android:layout_width="@dimen/_52sdp"-->
+<!--                                    android:layout_height="@dimen/_52sdp"-->
+<!--                                    android:layout_centerInParent="true"-->
+<!--                                    android:src="@drawable/img_video_icon"-->
+<!--                                    android:visibility="gone" />-->
+<!--                            </LinearLayout>-->
+
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_centerVertical="true"-->
+<!--                                android:layout_marginStart="@dimen/_30sdp"-->
+<!--                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                android:layout_toEndOf="@id/ll_shot"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/iv_filter"-->
+<!--                                    android:layout_width="@dimen/_25sdp"-->
+<!--                                    android:layout_height="@dimen/_25sdp"-->
+<!--                                    android:src="@drawable/img_filter" />-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/tv_filter"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:text="Filter"-->
+<!--                                    android:textColor="@color/white"-->
+<!--                                    android:textSize="@dimen/_10sdp"-->
+<!--                                    android:visibility="gone" />-->
+<!--                            </LinearLayout>-->
+<!--                        </RelativeLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/img_back_icon" />
+
+            <!--            <RelativeLayout-->
+            <!--                android:id="@+id/ll_bottom"-->
+            <!--                android:layout_width="@dimen/_180sdp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_centerHorizontal="true"-->
+            <!--                android:layout_marginTop="@dimen/_10sdp"-->
+            <!--                android:layout_marginBottom="10dp"-->
+            <!--                android:orientation="horizontal">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:id="@+id/ll_presets"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_alignParentStart="true"-->
+            <!--                    android:orientation="vertical">-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/tv_presets"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                        android:text="Presets"-->
+            <!--                        android:textColor="#707070A3"-->
+            <!--                        android:textSize="@dimen/_12sdp" />-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/iv_dot_presets"-->
+            <!--                        android:layout_width="@dimen/_5sdp"-->
+            <!--                        android:layout_height="@dimen/_5sdp"-->
+            <!--                        android:layout_gravity="center"-->
+            <!--                        android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                        android:layout_marginBottom="@dimen/_10sdp"-->
+            <!--                        android:src="@drawable/img_dot"-->
+            <!--                        android:visibility="gone" />-->
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:id="@+id/ll_photo"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_centerHorizontal="true"-->
+            <!--                    android:orientation="vertical">-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/tv_photo"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                        android:text="Photo"-->
+            <!--                        android:textColor="#707070A3"-->
+            <!--                        android:textSize="@dimen/_12sdp" />-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/iv_dot_photo"-->
+            <!--                        android:layout_width="@dimen/_5sdp"-->
+            <!--                        android:layout_height="@dimen/_5sdp"-->
+            <!--                        android:layout_gravity="center"-->
+            <!--                        android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                        android:layout_marginBottom="@dimen/_10sdp"-->
+            <!--                        android:src="@drawable/img_dot" />-->
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:id="@+id/ll_video"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_alignParentEnd="true"-->
+            <!--                    android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                    android:orientation="vertical">-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/tv_video"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:text="Video"-->
+            <!--                        android:textColor="@color/gray"-->
+            <!--                        android:textSize="@dimen/_12sdp" />-->
+
+            <!--                    <ImageView-->
+            <!--                        android:id="@+id/iv_dot_video"-->
+            <!--                        android:layout_width="@dimen/_5sdp"-->
+            <!--                        android:layout_height="@dimen/_5sdp"-->
+            <!--                        android:layout_gravity="center"-->
+            <!--                        android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                        android:layout_marginBottom="@dimen/_10sdp"-->
+            <!--                        android:src="@drawable/img_dot"-->
+            <!--                        android:visibility="gone" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </RelativeLayout>-->
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
